@@ -1,0 +1,78 @@
+quierespaginaestres:
+	1 = si
+	2 = no
+	3 = talvez
+esunproblema:
+	1 = si
+	2 = no
+	3 = talvez
+combateestres:
+	1 = si
+	2 = no
+	3 = talvez
+sexo:
+	1 = hombre
+	2 = Mujer
+	3 = Otro
+edad: 
+	las que son.
+dominiointernet:
+	1 = Buen0
+	2 = Princ1piante
+	3 = Exp3rto
+ocupacion:
+	1 = Estudiante, 
+	2 = trabajador, 
+	3 = Estudiante y trabajador
+origen:
+	1 = Es una respuesta biológica o psicológica al estímulo que lo provoca
+	2 = Una enfermedad
+	3 = Es un instinto del cuerpo para protegerse a si mismo
+	4 = Es un trastorno mental
+sintomas:
+	1 = Anisedad
+	2 = Depresion
+	3 = Dolor de cabeza
+	4 = Neourosis
+
+mayor causa del estres:
+1 = La escuela (tareas, proyectos, exámenes, etc.)
+2 = La sociedad en general
+3 = Simplemente es un problema de la salud generado por uno mismo
+4 = Los problemas de nuestro entorn0
+5 = Los problemas de mi cas4
+6 = La escuela, mi familia, la sociedad y las expectativas que establece el mercado sobre mi.
+7 = 7
+estres buenomalo:
+1 = si
+2 = no
+3 = talvez
+utilidad:
+	1 = Informacion y tips con respecto al tema
+	2 = Una bitacora diaria
+	3 = Un test
+	4 = Todos los anterires
+	5 = relajarse
+Lo más molesto:
+1 = No cuento cn experiencia
+2 = Publicidad mlesta
+3 = Ausencia de Crterio
+4 = Falta de s3riedad
+5 = Notas mvy extensas
+uso internet:
+1 = Recopilacion de información
+2 = Investigacion académica
+3 = Ju3gos
+4 = Tod4s
+5 = Entretenimiento e investigacion
+6 = Redes sciales 
+que es lo que más utilizas:
+1 = Paginas Web
+2 = Aplicaci0nes
+3 = Libros
+4 = otros
+
+
+
+
+

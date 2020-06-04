@@ -1,0 +1,241 @@
+ <!DOCTYPE html>
+    <html lang='es'>
+    <head>
+    <meta charset='utf-8'>
+    <title>Estadisticas modulos</title>
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
+        
+        <link rel="stylesheet" type="text/css" href="node_modules/chartjs/dist/Chart.min.css">
+    
+        <script src="node_modules/chart.js/dist/Chart.js"></script>
+    </head>
+    <body class='container-fluid'>
+        <main>
+            <article>
+                Aquí se pretende mostrar las frecuencias de los elementos a considerar dle entrenamiento del test para poder entender mejor que caracteristicas tienen mayor impacto en el algoritmo. 
+            </article>
+            <div class='card container'>
+                <div class='card-header'>
+                    <h2 class='card-title'>Frecuencias del campo de prueba del objetivo: si desean que exista la página para combatir el estrés<h2>
+                    <h3 class='card-subtitle'>Cosa que es lo que nuestro algoritmo busca predecir</h3>
+                </div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_objetivo'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_objetivo'></canvas>
+                </div>
+            </div>
+            <hr>
+            <div class='card container'>
+                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba del objetivo: Analizar si el dominio del usuario en el internet afecta en la decisión<h2></div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_dominio'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_dominio'></canvas>
+                </div>
+            </div>
+            <hr>
+            <div class='card container'>
+                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba de entranemaineto: ver el impacto de la edad<h2></div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_Edad'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_Edad'></canvas>
+                </div>
+            </div>
+            <hr>
+            <div class='card container'>
+                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba del entrenamiento: si creen que es importante combatir el estrés<h2></div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_Combate'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_Combate'></canvas>
+                </div>
+            </div>
+            <hr>
+            <a href='index.html' class=' btn btn-primary'>Regresar al index</a>
+        <main>
+        <script>
+        var frecuencia_absoluta_objetivo =document.getElementById('frecuencia_absoluta_objetivo');
+        var ab_objetivo= new Chart(frecuencia_absoluta_objetivo,{
+        type:'bar',
+        data:{
+            labels:['si','Tal vez','No'],
+            datasets:[{
+                    label:'Frecuencias valores',
+                    data: [79,31,8],
+                    backgroundColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"],
+                    borderColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"]
+                    }
+                    
+            ]
+        }, options: {
+                        scales:{
+                                xAxes:[{
+                                        gridLines: {
+                                            offsetGridLines: true
+                                        }
+                                }],
+                                 yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                        }
+                }
+        });
+        var frecuencia_relativa_objetivo =document.getElementById('frecuencia_relativa_objetivo');
+            var rel_obj = new Chart(frecuencia_relativa_objetivo,{
+            type:'pie',
+            data:{
+                labels:['si','Tal vez','No'],
+                datasets:[{
+                        label:'Frecuencias valores',
+                        data: [66.95,26.27,6.78],
+                        backgroundColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"],
+                        borderColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"]
+                        }
+                        
+                ]
+            }
+            });
+    
+        var frecuencia_absoluta_dominio =document.getElementById('frecuencia_absoluta_dominio');
+            var ab_dominio= new Chart(frecuencia_absoluta_dominio,{
+            type:'bar',
+            data:{
+                labels:['Bueno','Experto','Principiante'],
+                datasets:[{
+                        label:'Frecuencias valores',
+                        data: [96,14,8],
+                        backgroundColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"],
+                        borderColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"]
+                        }
+                        
+                ]
+            }, options: {
+                            scales:{
+                                    xAxes:[{
+                                            gridLines: {
+                                                offsetGridLines: true
+                                            }
+                                    }],
+                                     yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                            }
+                    }
+            });
+        var frecuencia_relativa_dominio =document.getElementById('frecuencia_relativa_dominio');
+        var rel_dominio = new Chart(frecuencia_relativa_dominio,{
+                type:'pie',
+                data:{
+                        labels:['Bueno','Experto','Principiante'],
+                        datasets:[{
+                                label:'Frecuencias valores',
+                                data: [81.36,11.86,6.78],
+                    backgroundColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"],
+                    borderColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"]
+                                }
+                        ]
+                }
+        });
+    
+        var frecuencia_absoluta_Edad =document.getElementById('frecuencia_absoluta_Edad');
+        var ab_Edad= new Chart(frecuencia_absoluta_Edad,{
+        type:'bar',
+        data:{
+            labels:['16','17','15','18','20','28','19','14'],
+            datasets:[{
+                    label:'Frecuencias valores',
+                    data: [70,30,7,6,2,1,1,1],
+                    backgroundColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"],
+                    borderColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"]
+                    }
+                    
+            ]
+        }, options: {
+                        scales:{
+                                xAxes:[{
+                                        gridLines: {
+                                            offsetGridLines: true
+                                        }
+                                }],
+                                 yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                        }
+                }
+        });
+        var frecuencia_relativa_Edad =document.getElementById('frecuencia_relativa_Edad');
+            var rel_Edad = new Chart(frecuencia_relativa_Edad,{
+            type:'pie',
+            data:{
+                labels:['16','17','15','18','20','28','19','14'],
+                datasets:[{
+                        label:'Frecuencias valores',
+                        data: [59.32,25.42,5.93,5.08,1.69,0.85,0.85,0.85],
+                        backgroundColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"],
+                        borderColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"]
+                        }
+                        
+                ]
+            }
+            });
+    
+        var frecuencia_absoluta_Combate =document.getElementById('frecuencia_absoluta_Combate');
+            var ab_Combate= new Chart(frecuencia_absoluta_Combate,{
+            type:'bar',
+            data:{
+                labels:['si','Tal vez'],
+                datasets:[{
+                        label:'Frecuencias valores',
+                        data: [102,16],
+                        backgroundColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"],
+                    borderColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"]
+                        }
+                        
+                ]
+            }, options: {
+                            scales:{
+                                    xAxes:[{
+                                            gridLines: {
+                                                offsetGridLines: true
+                                            }
+                                    }],
+                                     yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                            }
+                    }
+            });
+        var frecuencia_relativa_Combate =document.getElementById('frecuencia_relativa_Combate');
+        var rel_Combate = new Chart(frecuencia_relativa_Combate,{
+                type:'pie',
+                data:{
+                        labels:['si','Tal vez'],
+                        datasets:[{
+                                label:'Frecuencias valores',
+                                data: [86.44,13.56],
+                    backgroundColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"],
+                    borderColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"]
+                                }
+                        ]
+                }
+        });
+        </script>
+    </body>
+    </html>
