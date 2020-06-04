@@ -12,16 +12,17 @@ import webbrowser as wb
 #Pues un algoritmo, que cosas no;
 excel_trabajar = pd.read_excel("Copia-de-estres.xlsx")
 y= excel_trabajar["quieresPaginaestres"]
-X = excel_trabajar[["Edad", "Sexo","combateestres","dominiointernet"]]
-x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.19,  random_state=4)
-arbolExperimental = DecisionTreeClassifier(max_depth=3)
+X = excel_trabajar[["Edad","esunproblema","sintoma","combateestres","dominiointernet"]]
+x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.19,  random_state=42)
+arbolExperimental = DecisionTreeClassifier(max_depth=5)
 arbolExperimental.fit(x_train, y_train)
 arbolScoreTest = arbolExperimental.score(x_test, y_test)
 arbolScoreTrain = arbolExperimental.score(x_train, y_train)
-print(arbolScoreTest)
-print(arbolScoreTrain)
 efectividadTest = round((arbolScoreTest*100),2)
 efectividadTrain = round((arbolScoreTrain*100),2)
+importancia = arbolExperimental.feature_importances_
+ramas = arbolExperimental.get_n_leaves
+print(importancia)
 algoritmo = open("algoritmo.html","w")
 mensaje = """<!DOCTYPE html>
     <html lang='es'>
@@ -47,10 +48,11 @@ mensaje = """<!DOCTYPE html>
             <article>
                 Nuestro algoritmo, es un arból de desición vasado en 4 variables para determinar si a las personas les interesaría o no la existencia de álguna página web referente al combate del estrés, ya que implica si nuestra página sería usada o no y por quienes. Las variables a considerar son:
                 <ul>
-                    <li>Edad</li>
-                    <li>Manejo del internet</li>
-                    <li>Si consideran que es importante el cambate contra el estrés</li>
-                    <li>Sexo</li>
+                    <li>Edad: esta tiene una relevancia en la desición de: <input type=text  size='4' value='"""+str(round(importancia[0]*100,2))+"""%' readonly='readonly'></li>
+                    <li>Si consideran que el estées es un problema para la sociedad: esta tiene una relevancia en la desición de: <input type=text  size='4' value='"""+str(round(importancia[1]*100,2))+"""%' readonly='readonly'></li>
+                    <li>El sintoma más asociado con el estrés, dependiendo de este el usuario podría ver de diferente manera su manejo del estrés: <input type=text  size='4' value='"""+str(round(importancia[2]*100,2))+"""%' readonly='readonly'></li>
+                    <li>Si consideran que es importante el cambate contra el estrés: esta tiene una relevancia en la desición de: <input type=text  size='4' value='"""+str(round(importancia[3]*100,2))+"""%' readonly='readonly'></li>
+                    <li>Manejo del internet: esta tiene una relevancia en la desición de: <input type=text  size='4' value='"""+str(round(importancia[4]*100,2))+"""%' readonly='readonly'></li>
                 </ul>
                 <hr>
                 <strong>Lo que se va mostrar de momento es una versión experimental del algoritmo</strong><br>
