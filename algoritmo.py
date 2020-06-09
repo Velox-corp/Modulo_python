@@ -22,6 +22,7 @@ arbolScoreTrain = arbolExperimental.score(x_train, y_train)
 efectividadTest = round((arbolScoreTest*100),2)
 efectividadTrain = round((arbolScoreTrain*100),2)
 importancia = arbolExperimental.feature_importances_
+#Documento para que amarre
 with open('arbol_estres.dot', 'w') as dot:
     dot = tree.export_graphviz(arbolExperimental,
                                max_depth = 5,
