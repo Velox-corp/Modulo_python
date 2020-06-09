@@ -5,7 +5,6 @@ Created on Tue Jun  2 21:43:27 2020
 @author: maste
 """
 import pandas as pd
-#import graphviz Librería que genera problemas 
 from sklearn import tree
 from sklearn.model_selection import train_test_split
 import webbrowser as wb
@@ -13,9 +12,9 @@ import webbrowser as wb
 excel_trabajar = pd.read_excel("Copia-de-estres.xlsx")
 y= excel_trabajar["quieresPaginaestres"]
 X = excel_trabajar[["Edad","esunproblema","sintoma","combateestres","dominiointernet"]]
-nombre_y = {"Si","No","Tal vez"}
-nombres_X={"Edad","El estres es un problema","Problema mayor asociado al estes","Es importante combatir el estres","Dominio del internet"}
-x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.19,  random_state=42)
+nombres_y = ["Si","No","Tal vez"]
+nombres_X=X.columns.tolist()
+x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.15,  random_state=42)
 arbolExperimental = tree.DecisionTreeClassifier(criterion='entropy',max_depth=5) #posiblemente con el criterion entropy salga mejor
 arbolExperimental.fit(x_train, y_train)
 arbolScoreTest = arbolExperimental.score(x_test, y_test)
@@ -25,10 +24,12 @@ efectividadTrain = round((arbolScoreTrain*100),2)
 importancia = arbolExperimental.feature_importances_
 with open('arbol_estres.dot', 'w') as dot:
     dot = tree.export_graphviz(arbolExperimental,
+                               max_depth = 5,
                                out_file=dot,
-                               class_names=nombres_X,
-                               feature_names=nombre_y,
-                               impurity=False,
+                               class_names=nombres_y,
+                               feature_names=nombres_X,
+                               impurity=True,
+                               rounded=True,
                                filled=True)
 algoritmo = open("algoritmo.html","w")
 mensaje = """<!DOCTYPE html>
@@ -68,7 +69,7 @@ mensaje = """<!DOCTYPE html>
                             <li>La percepción del problema es un factor muy importante, si no considera que es un problema o duda de su respuesta, este posiblemente no tenga interes</li>
                             <li>Esta variable tiene una relevancia en la desición de: <input type=text  size='4' value='"""+str(round(importancia[1]*100,2))+"""%' readonly='readonly'></li>
                         </ul>    
-                    <li>
+                    </li>
                     <li>El sintoma más asociado con el estrés: 
                         <ul>
                             <li>dependiendo de este el usuario podría ver de diferente manera el como debería manejar el estrés </li>
