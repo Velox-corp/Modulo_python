@@ -5,7 +5,7 @@ Created on Tue Jun  2 21:43:27 2020
 @author: maste
 """
 import pandas as pd
-import numpy as np
+import graphviz #Librería que genera problemas 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 import webbrowser as wb
@@ -13,6 +13,8 @@ import webbrowser as wb
 excel_trabajar = pd.read_excel("Copia-de-estres.xlsx")
 y= excel_trabajar["quieresPaginaestres"]
 X = excel_trabajar[["Edad","esunproblema","sintoma","combateestres","dominiointernet"]]
+#nombre_y = {"Si","No","Tal vez"}
+#nombres_X={"Edad","El estres es un problema","Problema mayor asociado al estes","Es importante combatir el estres","Dominio del internet"}
 x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.19,  random_state=42)
 arbolExperimental = DecisionTreeClassifier(max_depth=5)
 arbolExperimental.fit(x_train, y_train)
@@ -21,8 +23,7 @@ arbolScoreTrain = arbolExperimental.score(x_train, y_train)
 efectividadTest = round((arbolScoreTest*100),2)
 efectividadTrain = round((arbolScoreTrain*100),2)
 importancia = arbolExperimental.feature_importances_
-ramas = arbolExperimental.get_n_leaves
-print(importancia)
+#export_graphviz(arbolExperimental, out_file='arbol_estres.dot',class_names=nombres_X,feature_names=nombre_y,impurity=False,filled=True)
 algoritmo = open("algoritmo.html","w")
 mensaje = """<!DOCTYPE html>
     <html lang='es'>
