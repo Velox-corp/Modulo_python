@@ -16,7 +16,7 @@ X = excel_trabajar[["Edad","esunproblema","sintoma","combateestres","dominiointe
 nombre_y = {"Si","No","Tal vez"}
 nombres_X={"Edad","El estres es un problema","Problema mayor asociado al estes","Es importante combatir el estres","Dominio del internet"}
 x_train,x_test,y_train,y_test = train_test_split(X,y, test_size=0.19,  random_state=42)
-arbolExperimental = tree.DecisionTreeClassifier(max_depth=5)
+arbolExperimental = tree.DecisionTreeClassifier(criterion='entropy',max_depth=5) #posiblemente con el criterion entropy salga mejor
 arbolExperimental.fit(x_train, y_train)
 arbolScoreTest = arbolExperimental.score(x_test, y_test)
 arbolScoreTrain = arbolExperimental.score(x_train, y_train)
