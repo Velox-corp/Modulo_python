@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  2 16:23:10 2020
-
-@author: maste
-"""
 # sitmonas, esunproblema, combateestres, dominiointernet, sexo, edad, quieresPaginaestres
 import pandas as pd
 import webbrowser as wb
-preguntas = pd.read_excel("estres.xlsx")
+preguntas = pd.read_excel("archivos/estres.xlsx")
 #Parte de el entrenamiento
 valores_finales = preguntas["quieresPaginaestres"]
 y = valores_finales.value_counts()
@@ -91,7 +86,7 @@ estadisticas = open("estadisticas.html","w")
 cuerpo = """ <!DOCTYPE html>
     <html lang='es'>
     <head>
-    <meta charset='utf-8'>
+    <meta http-equiv="Content-Type" content="text/htmset=UTF-8">
     <title>Estadisticas modulos</title>
     
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
