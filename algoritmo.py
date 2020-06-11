@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  2 21:43:27 2020
-
-@author: maste
-"""
 import pandas as pd
 from sklearn import tree
 from sklearn.model_selection import train_test_split
 import webbrowser as wb
 #Pues un algoritmo, que cosas no;
-excel_trabajar = pd.read_excel("Copia-de-estres.xlsx")
+excel_trabajar = pd.read_excel("archivos/Copia-de-estres.xlsx")
 y= excel_trabajar["quieresPaginaestres"]
 X = excel_trabajar[["Edad","esunproblema","sintoma","combateestres","dominiointernet"]]
 nombres_y = ["Si","No","Tal vez"]
@@ -23,7 +18,7 @@ efectividadTest = round((arbolScoreTest*100),2)
 efectividadTrain = round((arbolScoreTrain*100),2)
 importancia = arbolExperimental.feature_importances_
 #Documento para que amarre
-with open('arbol_estres.dot', 'w') as dot:
+with open('arbol/arbol_estres.dot', 'w') as dot:
     dot = tree.export_graphviz(arbolExperimental,
                                max_depth = 5,
                                out_file=dot,
@@ -36,24 +31,70 @@ algoritmo = open("algoritmo.html","w")
 mensaje = """<!DOCTYPE html>
     <html lang='es'>
     <head>
-    <meta charset='utf-8'>
-    <title>Estadisticas modulos</title>
+    <meta http-equiv="Content-Type" content="text/htmset=UTF-8">
+    <title>Modulo Python | Estadísticas Modulos</title>
     
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
-        
         <link rel="stylesheet" type="text/css" href="node_modules/chartjs/dist/Chart.min.css">
+        <link href="css/slider.css" rel="stylesheet">
     
         <script src="node_modules/chart.js/dist/Chart.js"></script>
     </head>
-    <body class='container-fluid'>
-        <main>
-            <h1 class='text-center  bg-primary container-fluid'>Detalles del Algortimo</h1><hr>
+    <body style="background-color: #04C4D9">
+        <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top" style="background: #0D0D0D; color: #E8E8E8; font-family:'Open Sans', sans-serif; font-size: 11px;">
+            <a class="navbar-brand" href="index.html"><img src="img/Logotipo.png" class="hover" style="height: 40px; width: 40px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #24A5BA">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarHover">
+                <ul class="navbar-nav">
+                    <li class="nav-item-2 active">
+                        <a class="nav-link" href="algoritmo.html">ALGORITMO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="estadisticas.html">ESTADISTICAS</a>
+                    </li>
+                </ul>
+                <div class="col">
+                
+                </div>
+                <span>
+                    <ul class="navbar-nav my-2 my-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link" href="carrito.jsp" tabindex="-1" aria-disabled="true"><img src="img/carrito.png" class="hover" style="height: 25px; width: 25px"></a>
+                        </li>
+                        <li class="nav-item-2">
+                            <div id="ocultable" style="display: none">
+                                <div class="topnav">
+                                    <input class="form-control" type="text" placeholder="Buscar" aria-label="Search" style="background: #0C0C0D; color: #E8E8E8; font-family:'Open Sans', sans-serif; border-color: #E8E8E8">
+                                </div> 
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><img src="img/buscar.png" class="hover" style="height: 25px; width: 25px; margin-right: .5vw" onclick="return mostrarOcultar('ocultable')" type="button" class="oculta"></a>
+                            
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </nav>
+        <div id="slides" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/1.jpg">
+                    <div class="carousel-caption">
+                        <h1 class="display-2" style="margin-top: 5vw; font-family: 'Muli', sans-serif; color: #F8F9FA">Detalles del Algortimo</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d">
             <article>
                 Nuestro algoritmo, es un arból de desición vasado en 5 variables para determinar si a las personas les interesaría o no la existencia de álguna página web referente al combate del estrés, ya que implica si nuestra página sería usada o no y por quienes. Las variables a considerar son:
                     El algoritmo es un árbol de desición debido a que con este se pueden ejecutar diversas comparativas de condicionales, y a partir de estas determinar lo buscado.
@@ -97,7 +138,10 @@ mensaje = """<!DOCTYPE html>
                 <hr>
                 <a href='index.html' class='btn btn-primary'>Regresar al index.</a>
             </article>
-        <main>
+        </div>
+        <script src="js/JQuery.js" type="text/javascript"></script>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </body>
     </html>
 """
