@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
-  color: #E8E8E8;
+  color: rgba(0,0,0,.9);
   font-size: 14px;
 }
 
@@ -11,13 +11,14 @@ input {
     background-color: #E8E8E8;
 }
 
-.contenedor {
-  font-family: 'Roboto', sans-serif;
-  color: #E8E8E8;
-  font-size: 14px;
-  background-color: rgb(4, 196, 217, 0.5);
+.form-control {
+  text-align: center;
+  background: #F8F9FA; 
+  color: rgba(0,0,0,.9); 
+  font-family:'Open Sans', sans-serif; 
+  border-color: #F8F9FA;
+  max-width: 80px;
 }
-
 .d {
     margin:1.5vw;
 }
@@ -34,15 +35,6 @@ a, a:hover, a:focus {
     -webkit-filter: saturate(3);
     filter: saturate(3);
     -webkit-transition: all .4s ease-in-out; 
-}
-
-.opa {
-    color: #A8A8A8;
-}
-
-.blo {
-    width: 90%;
-    height: 5%;
 }
 
 .hovereffect .overlay {
@@ -92,31 +84,17 @@ a, a:hover, a:focus {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
-
-.contenedor{
-    margin-top: 5vw;
-    border-radius: 10px;
-    width: 350px;
-    height: 450px;
-    color: #E8E8E8;
-    opacity: 1;
+.sub {
+  font-family: 'Open Sans', sans-serif; 
+  color: #04C4D9;
 }
 
-.contenedor2{
-    border-radius: 10px;
-    width: 700px;
-    height: 100%;
-    color: #E8E8E8;
-    opacity: 2;
+.subi {
+  font-family: 'Open Sans', sans-serif; 
+  color: #04D99D;
 }
 
-.contenedor3{
-    margin-top: 8vw;
-    width: 700px;
-    height: 70%;
-    color: #E8E8E8;
-    opacity: 1;
-}
+hr { height:3px; border:none; color:#04D99D; background-color:#04D99D; }
 
 .form-control {
     width: 320px;
@@ -205,4 +183,25 @@ a, a:hover, a:focus {
     width: 20vw;
     opacity: 1;
     font-family: 'Open Sans', sans-serif;
+}
+/*----------------------------------------------------------*/
+.card {
+  background-color: #F8F9FA;
+  border: #F8F9FA;
+}
+
+.card-header {
+  background-color: #F8F9FA; 
+}
+
+.card-title{
+  font-family: 'Muli', sans-serif; 
+  color: #04C4D9;
+  font-size: 22.5px;
+}
+
+.card-subtitle{
+  font-family: 'Muli', sans-serif; 
+  color: #04D99D; 
+  font-size: 18px;
 }
