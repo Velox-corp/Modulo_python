@@ -5,7 +5,7 @@ cuerpo = """
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/htmset=UTF-8">
-    <title>Modelo Python | Home</title>
+    <title>Módelo Python | Home</title>
     <link rel="icon" href="img/Logotipo.png" type="image/jpg" />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -19,9 +19,9 @@ cuerpo = """
 	<link href="css/slider.css" rel="stylesheet">
        
     </head>
-    <body style="background-color: #04C4D9">
-        <nav class="navbar navbar-expand-md navbar-light bg-light navbar-hover fixed-top" style="background: #0D0D0D; color: #E8E8E8; font-family:'Open Sans', sans-serif; font-size: 11px;">
-            <a class="navbar-brand" href="index.html"><img src="img/Logotipo.png" class="hover" style="height: 40px; width: 40px"></a>
+    <body style="background-color:  #F8F9FA">
+        <nav class="navbar navbar-expand-md navbar-info bg-info navbar-hover fixed-top" style="color: rgba(0,0,0,.9); font-family:'Open Sans', sans-serif; font-size: 11px;">
+            <a class="navbar-brand" href="index.html"><img src="img/Logotipo.png" class="hover" style="height: 40px; width: 40px; border-radius:50%"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #24A5BA">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,30 +34,12 @@ cuerpo = """
                         <a class="nav-link" href="algoritmo.html">ALGORITMO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="estadisticas.html">ESTADISTICAS</a>
+                        <a class="nav-link" href="estadisticas.html">ESTADÍSTICAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="arbol.html">ÁRBOL DE DECISIÓN</a>
                     </li>
                 </ul>
-                <div class="col">
-                
-                </div>
-                <span>
-                    <ul class="navbar-nav my-2 my-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link" href="carrito.jsp" tabindex="-1" aria-disabled="true"><img src="img/carrito.png" class="hover" style="height: 25px; width: 25px"></a>
-                        </li>
-                        <li class="nav-item-2">
-                            <div id="ocultable" style="display: none">
-                                <div class="topnav">
-                                    <input class="form-control" type="text" placeholder="Buscar" aria-label="Search" style="background: #0C0C0D; color: #E8E8E8; font-family:'Open Sans', sans-serif; border-color: #E8E8E8">
-                                </div> 
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><img src="img/buscar.png" class="hover" style="height: 25px; width: 25px; margin-right: .5vw" onclick="return mostrarOcultar('ocultable')" type="button" class="oculta"></a>
-                            
-                        </li>
-                    </ul>
-                </span>
             </div>
         </nav>
         <div id="slides" class="carousel slide" data-ride="carousel">
@@ -70,7 +52,7 @@ cuerpo = """
                 <div class="carousel-item active">
                     <img src="img/2.jpg">
                     <div class="carousel-caption">
-                        <h1 class="display-2" style="margin-top: 10vw; font-family: 'Impact', sans-serif; color: white"></h1>
+                        <h1 class="display-2" style="margin-top: 5vw; font-family: 'Muli', sans-serif; color: #F8F9FA">VELOX</h1>
                     </div>
                 </div>
                 <div class="carousel-item">
