@@ -27,14 +27,14 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-track {
 -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-image: -webkit-gradient(linear, left bottom, left top, from(#04D99D), to(white));
-background-image: -webkit-linear-gradient(bottom, #04D99D 0%, white 100%);
-background-image: linear-gradient(to top,  #04D99D 0%,  white 100%);
+background-image: -webkit-gradient(linear, left bottom, left top, from(#04D976), to(#04D99D));
+background-image: -webkit-linear-gradient(bottom, #04D976 0%, #04D99D 100%);
+background-image: linear-gradient(to top,  #04D976 0%,  #04D99D 100%);
 }
 
 body::-webkit-scrollbar-thumb {
   background: transparent; /* opacity: 0; should do the thing either */
-  box-shadow: 0px 0px 0px 100000vh #04C4D9;
+  box-shadow: 0px 0px 0px 100000vh rgba(23, 162, 184, .7);
 }
 
 .hover:hover {
