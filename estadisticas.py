@@ -87,31 +87,62 @@ cuerpo = """ <!DOCTYPE html>
     <html lang='es'>
     <head>
     <meta http-equiv="Content-Type" content="text/htmset=UTF-8">
-    <title>Estadisticas modulos</title>
+    <link rel="icon" href="img/Logotipo.png" type="image/jpg" />
+    <title>Módulo Python | Estadisticas Módulos</title>
     
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
-        
         <link rel="stylesheet" type="text/css" href="node_modules/chartjs/dist/Chart.min.css">
-    
-        <script src="node_modules/chart.js/dist/Chart.js"></script>
+        <script src="node_modules/chart.js/dist/Chart.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    	<link href="css/slider.css" rel="stylesheet">
+       
     </head>
-    <body class='container-fluid'>
-        <main>
-            <h1 class='text-center bg-primary'>Estadisticas de las variables </h1>
-            <hr>
+    <body style="background-color:  #F8F9FA">
+        <nav class="navbar navbar-expand-md navbar-info bg-info navbar-hover fixed-top" style="color: rgba(0,0,0,.9); font-family:'Open Sans', sans-serif; font-size: 11px;">
+            <a class="navbar-brand" href="index.html"><img src="img/Logotipo.png" class="hover" style="height: 40px; width: 40px; border-radius:50%"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover" aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation" style="background: #24A5BA">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarHover">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="algoritmo.html">ALGORITMO</a>
+                    </li>
+                    <li class="nav-item-2 active">
+                        <a class="nav-link" href="estadisticas.html">ESTADÍSTICAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="arbol.html">ÁRBOL DE DECISIÓN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="slides" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/1.jpg">
+                    <div class="carousel-caption">
+                        <h1 class="display-2" style="margin-top: 3vw; font-family: 'Muli', sans-serif; color: #F8F9FA">Estadísticas de las variables</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d">
             <article>
                 Aquí se pretende mostrar las frecuencias de los elementos a considerar del entrenamiento del test para poder entender mejor que caracteristicas tienen mayor impacto en el algoritmo. 
             </article>
             <br>
             <div class='card container'>
                 <div class='card-header'>
-                    <h2 class='card-title'>Frecuencias del campo de prueba del objetivo: si desean que exista la página para combatir el estrés<h2>
+                    <h2 class='card-title'>Frecuencias del campo de prueba del objetivo: Si desean que exista la página para combatir el estrés<h2>
                     <h3 class='card-subtitle'>Cosa que es lo que nuestro algoritmo busca predecir</h3>
                 </div>
                 <div class='card-body'>
@@ -131,7 +162,7 @@ cuerpo = """ <!DOCTYPE html>
             </div>
             <hr>
             <div class='card container'>
-                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba de entranemaineto: ver el impacto de la edad<h2></div>
+                <div class='card-header'><h2 class='card-title' style="color:#04D99D">Frecuencias del campo de prueba de entranemaineto: Ver el impacto de la edad<h2></div>
                 <div class='card-body'>
                     <canvas id='frecuencia_absoluta_Edad'></canvas>
                     <br>
@@ -140,7 +171,7 @@ cuerpo = """ <!DOCTYPE html>
             </div>
             <hr>
             <div class='card container'>
-                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba del entrenamiento: si creen que es importante combatir el estrés<h2></div>
+                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba del entrenamiento: Si creen que es importante combatir el estrés<h2></div>
                 <div class='card-body'>
                     <canvas id='frecuencia_absoluta_Combate'></canvas>
                     <br>
@@ -148,7 +179,23 @@ cuerpo = """ <!DOCTYPE html>
                 </div>
             </div>
             <hr>
-            <a href='index.html' class=' btn btn-primary'>Regresar al index</a>
+            <div class='card container'>
+                <div class='card-header'><h2 class='card-title'>Frecuencias del campo de prueba del entrenamiento: Síntoma más asociado al estrés<h2></div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_Sintoma'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_Sintoma'></canvas>
+                </div>
+            </div>
+            <hr>
+            <div class='card container'>
+                <div class='card-header'><h2 class='card-title' style="color:#04D99D">Frecuencias del campo de prueba del entrenamiento: Si ven que el estrés es un problema para la sociedad<h2></div>
+                <div class='card-body'>
+                    <canvas id='frecuencia_absoluta_Sociedad'></canvas>
+                    <br>
+                    <canvas id='frecuencia_relativa_Sociedad'></canvas>
+                </div>
+            </div>
         <main>
         <script>
         var frecuencia_absoluta_objetivo =document.getElementById('frecuencia_absoluta_objetivo');
@@ -157,10 +204,10 @@ cuerpo = """ <!DOCTYPE html>
         data:{
             labels:["""+scriptTablaValoresFinalesX+"""],
             datasets:[{
-                    label:'Frecuencias valores',
+                    label:'Frecuencias Valores',
                     data: ["""+scriptTablaValoresFinalesYab+"""],
-                    backgroundColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"],
-                    borderColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"]
+                    backgroundColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)","#04D976"],
+                    borderColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)","#04D976"]
                     }
                     
             ]
@@ -185,10 +232,10 @@ cuerpo = """ <!DOCTYPE html>
             data:{
                 labels:["""+scriptTablaValoresFinalesX+"""],
                 datasets:[{
-                        label:'Frecuencias valores',
+                        label:'Frecuencias Valores',
                         data: ["""+scriptTablaValoresFinalesYrel+"""],
-                        backgroundColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"],
-                        borderColor: ["rgb(255,60,30)","rgb(30,255,60)","rgb(60,20,255)"]
+                        backgroundColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)","#04D976"],
+                        borderColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)","#04D976"]
                         }
                         
                 ]
@@ -201,10 +248,10 @@ cuerpo = """ <!DOCTYPE html>
             data:{
                 labels:["""+scriptValoresDominioX+"""],
                 datasets:[{
-                        label:'Frecuencias valores',
+                        label:'Frecuencias Valores',
                         data: ["""+scriptValoresDominioYab+"""],
-                        backgroundColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"],
-                        borderColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"]
+                        backgroundColor: ["#025159","#04ADBF","#04C4D9"],
+                    borderColor: ["#025159","#04ADBF","#04C4D9"]
                         }
                         
                 ]
@@ -229,10 +276,10 @@ cuerpo = """ <!DOCTYPE html>
                 data:{
                         labels:["""+scriptValoresDominioX+"""],
                         datasets:[{
-                                label:'Frecuencias valores',
+                                label:'Frecuencias Valores',
                                 data: ["""+scriptValoresDominioYrel+"""],
-                    backgroundColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"],
-                    borderColor: ["rgb(255,255,60)","rgb(255,60,30)","rgb(60,255,30)"]
+                    backgroundColor: ["#025159","#04ADBF","#04C4D9"],
+                    borderColor: ["#025159","#04ADBF","#04C4D9"]
                                 }
                         ]
                 }
@@ -244,10 +291,10 @@ cuerpo = """ <!DOCTYPE html>
         data:{
             labels:["""+scriptValoresEdadX+"""],
             datasets:[{
-                    label:'Frecuencias valores',
+                    label:'Frecuencias Valores',
                     data: ["""+scriptValoresEdadYab+"""],
-                    backgroundColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"],
-                    borderColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"]
+                    backgroundColor: ["#1D5948","#025940","#03996F","#03A678","#04BF8A","#04D99D","#05E6A6","#05F2AF"],
+                        borderColor: ["#1D5948","#025940","#03996F","#03A678","#04BF8A","#04D99D","#05E6A6","#05F2AF"]
                     }
                     
             ]
@@ -272,10 +319,10 @@ cuerpo = """ <!DOCTYPE html>
             data:{
                 labels:["""+scriptValoresEdadX+"""],
                 datasets:[{
-                        label:'Frecuencias valores',
+                        label:'Frecuencias Valores',
                         data: ["""+scriptValoresEdadYrel+"""],
-                        backgroundColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"],
-                        borderColor: ["rgb(200,60,30)","rgb(200,60,60)","rgb(200,90,60)","rgb(200,90,90)","rgb(200,120,90)","rgb(200,120,120)","rgb(200,150,120)","rgb(200,150,150)"]
+                        backgroundColor: ["#1D5948","#025940","#03996F","#03A678","#04BF8A","#04D99D","#05E6A6","#05F2AF"],
+                        borderColor: ["#1D5948","#025940","#03996F","#03A678","#04BF8A","#04D99D","#05E6A6","#05F2AF"]
                         }
                         
                 ]
@@ -288,10 +335,10 @@ cuerpo = """ <!DOCTYPE html>
             data:{
                 labels:["""+scriptValoresCombateX+"""],
                 datasets:[{
-                        label:'Frecuencias valores',
+                        label:'Frecuencias Valores',
                         data: ["""+scriptValoresCombateYab+"""],
-                        backgroundColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"],
-                    borderColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"]
+                        backgroundColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)"],
+                    borderColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)"]
                         }
                         
                 ]
@@ -316,15 +363,112 @@ cuerpo = """ <!DOCTYPE html>
                 data:{
                         labels:["""+scriptValoresCombateX+"""],
                         datasets:[{
-                                label:'Frecuencias valores',
+                                label:'Frecuencias Valores',
                                 data: ["""+scriptValoresCombateYrel+"""],
-                    backgroundColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"],
-                    borderColor: ["rgb(30,255,200)","rgb(60,255,130)","rgb(255,130,130)"]
+                    backgroundColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)"],
+                    borderColor: ["rgb(4, 196, 217)","rgb(4, 217, 157)"]
+                                }
+                        ]
+                }
+        });
+        var frecuencia_absoluta_Sintoma =document.getElementById('frecuencia_absoluta_Sintoma');
+            var ab_dominio= new Chart(frecuencia_absoluta_Sintoma,{
+            type:'bar',
+            data:{
+                labels:["Ansiedad","Dolor de cabeza","Depresión", "Neurosis"],
+                datasets:[{
+                        label:'Frecuencias Valores',
+                        data: [{x:'Ansiedad', y:73, z:1},
+                            {x:'Dolor de cabeza', y:37, z:2},
+                            {x:'Depresion', y:5, z:3},
+                            {x:'Neurosis', y:3, z:4},
+                            
+                                      ],
+                        backgroundColor: ["#025159","#04ADBF","#04C4D9","#05CFE6"],
+                    borderColor: ["#025159","#04ADBF","#04C4D9","#05CFE6"]
+                        }
+                        
+                ]
+            }, options: {
+                            scales:{
+                                    xAxes:[{
+                                            gridLines: {
+                                                offsetGridLines: true
+                                            }
+                                    }],
+                                     yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                            }
+                    }
+            });
+        var frecuencia_relativa_Sintoma =document.getElementById('frecuencia_relativa_Sintoma');
+        var rel_dominio = new Chart(frecuencia_relativa_Sintoma,{
+                type:'pie',
+                data:{
+                        labels:["Ansiedad","Dolor de cabeza","Depresión", "Neurosis"],
+                        datasets:[{
+                                label:'Frecuencias Valores',
+                                data: ["61.86440678","31.355932199999998","4.237288136","2.542372881"],
+                    backgroundColor: ["#025159","#04ADBF","#04C4D9","#05CFE6"],
+                    borderColor: ["#025159","#04ADBF","#04C4D9","#05CFE6"]
+                                }
+                        ]
+                }
+        });
+        var frecuencia_absoluta_Sociedad =document.getElementById('frecuencia_absoluta_Sociedad');
+            var ab_dominio= new Chart(frecuencia_absoluta_Sociedad,{
+            type:'bar',
+            data:{
+                labels:["Si","Tal vez","No"],
+                datasets:[{
+                        label:'Frecuencias Valores',
+                        data: [{x:'Si', y:82, z:1},
+                            {x:'Tal vez', y:30, z:2},
+                            {x:'No', y:6, z:3},
+                            
+                                      ],
+                        backgroundColor: ["#1D5948","#025940","#03996F"],
+                    borderColor: ["#1D5948","#025940","#03996F"]
+                        }
+                        
+                ]
+            }, options: {
+                            scales:{
+                                    xAxes:[{
+                                            gridLines: {
+                                                offsetGridLines: true
+                                            }
+                                    }],
+                                     yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                            }
+                    }
+            });
+        var frecuencia_relativa_Sociedad =document.getElementById('frecuencia_relativa_Sociedad');
+        var rel_dominio = new Chart(frecuencia_relativa_Sociedad,{
+                type:'pie',
+                data:{
+                        labels:["Si","Tal vez","No"],
+                        datasets:[{
+                                label:'Frecuencias Valores',
+                                data: ["69.49152542","25.42372881","5.084745763"],
+                    backgroundColor: ["#1D5948","#025940","#03996F"],
+                    borderColor: ["#1D5948","#025940","#03996F"]
                                 }
                         ]
                 }
         });
         </script>
+        </div>
+        <script src="js/JQuery.js" type="text/javascript"></script>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </body>
     </html>
 """
